@@ -1,0 +1,44 @@
+<header class="text-center" style="margin-top: 20vh;">
+    <h1> ITI Tracks</h1>
+</header>
+<div class="container mt-4">
+    <div class="form-group">
+        <label for="trackSelect">Select your track:</label>
+        <select class="form-control" id="trackSelect" [(ngModel)]="selectedTrack">
+            <option value="dotnet">.NET</option>
+            <option value="mearn">MEARN</option>
+            <option value="testing">Testing</option>
+            <option value="front">Frontend</option>
+        </select>
+    </div>
+
+    <div *ngIf="selectedTrack === 'dotnet'" class="mt-4">
+        <h2>.NET Track Available at:</h2>
+        <ul>
+            <li>Smart Branch</li>
+        </ul>
+    </div>
+
+    <div *ngIf="selectedTrack === 'mearn'" class="mt-4">
+        <h2>MEARN Track Available at:</h2>
+        <ul>
+            <li>Banha Branch</li>
+            <li>Menofia Branch</li>
+        </ul>
+    </div>
+
+    <div *ngIf="selectedTrack === 'testing'" class="mt-4">
+        <h2>Testing Track Available at:</h2>
+        <ul>
+            <li>Mansoura Branch</li>
+            <li>Assuit Branch</li>
+        </ul>
+    </div>
+
+    <div *ngIf="selectedTrack === 'front'" class="mt-4">
+        <h2>Frontend Track Available at:</h2>
+        <ul>
+            <li>Menofia Branch</li>
+        </ul>
+    </div>
+</div>

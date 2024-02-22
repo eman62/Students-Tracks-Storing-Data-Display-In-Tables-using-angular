@@ -1,0 +1,42 @@
+<div class="main-div">
+    <div class="container p-5">
+        <h1 mb-3>Student Table</h1>
+        <form class="row g-3 needs-validation" [class.submitted]="formSubmitted" novalidate (ngSubmit)="add()">
+            <div class="col-md-6">
+                <label for="validationCustom01" class="form-label">User Name</label>
+                <input type="text" class="form-control" [(ngModel)]="inputValue" name="inputValue"
+                    id="validationCustom01" minlength="3" required #inputName="ngModel"
+                    [ngClass]="{'is-invalid': inputName.invalid && (inputName.dirty || inputName.touched || formSubmitted)}">
+                <div class="invalid-feedback">
+                    User Name is required and must be at least 3 characters.
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label for="validationCustom02" class="form-label">Age</label>
+                <input type="number" class="form-control" [(ngModel)]="inputAge" name="inputAge" id="validationCustom02"
+                    min="18" required #inputAgeField="ngModel"
+                    [ngClass]="{'is-invalid': inputAgeField.invalid && (inputAgeField.dirty || inputAgeField.touched || formSubmitted)}">
+                <div class="invalid-feedback">
+                    Age is required and must be at least 18.
+                </div>
+            </div>
+            <div class="col-12 mt-3">
+                <button class="btn btn-primary" type="submit">Submit form</button>
+            </div>
+        </form>
+        <div class="row mt-4" *ngFor="let user of userNameList">
+            <div class="col-sm-2">
+                <h5 class="bg-primary p-3 rounded text-light">ID : {{ user.id }}</h5>
+            </div>
+            <div class="col-sm-5">
+                <h5 class="bg-primary p-3 rounded text-light">Name : {{ user.name }}</h5>
+            </div>
+            <div class="col-sm-3">
+                <h5 class="bg-primary p-3 rounded text-light">Age : {{ user.age }}</h5>
+            </div>
+            <div class="col-sm-2">
+                <button class="btn btn-outline-danger" (click)="remove(user)">delete</button>
+            </div>
+        </div>
+    </div>
+</div>
